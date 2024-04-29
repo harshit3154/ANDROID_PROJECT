@@ -1,5 +1,6 @@
 package com.example.project_dequeue
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ class Signup : Fragment() {
     lateinit var name:TextView
     lateinit var email:TextView
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,8 +39,10 @@ class Signup : Fragment() {
                 Toast.makeText(context,"Empty email field",Toast.LENGTH_SHORT).show()
             }
             else {
+                var activity_main:MainActivity=activity as MainActivity
+                activity_main.save(name.text.toString(),email.text.toString())
                 Toast.makeText(context,"Your account has been created successfully.",Toast.LENGTH_SHORT).show()
-                val first_screen = user_interface()
+                val first_screen = LoginPage()
                     fragmentManager?.beginTransaction()?.replace(R.id.signupscreen, first_screen)?.commit()
             }
         }

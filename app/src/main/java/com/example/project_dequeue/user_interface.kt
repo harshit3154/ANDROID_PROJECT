@@ -13,7 +13,8 @@ import android.widget.Toast
 import android.widget.Toolbar
 
 
-class user_interface : Fragment() {
+class
+    user_interface : Fragment() {
 
     lateinit var viewu:View
     lateinit var list:ListView
@@ -25,7 +26,7 @@ class user_interface : Fragment() {
         // Inflate the layout for this fragment
         viewu=inflater.inflate(R.layout.fragment_user_interface, container, false)
         val arr= arrayOf(
-            "KITCHEN ETTE",
+            "KITCHEN ETTE ",
             "OVEN EXPRESS",
             "BENGALI KITCHEN",
             "CENTRAL MESS"

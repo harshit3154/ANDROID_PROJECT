@@ -23,14 +23,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue with Google"
+        android:text="Login"
         android:textSize="20dp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="490dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:id="@+id/signupgoogle"
+        android:id="@+id/femail"
         />
 
     <Button

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_firstScreen_to_signup2"
             app:destination="@id/signup2" />
+        <action
+            android:id="@+id/action_firstScreen_to_loginPage"
+            app:destination="@id/loginPage" />
     </fragment>
     <fragment
         android:id="@+id/user_interface"
@@ -32,6 +35,21 @@
             app:destination="@id/user_interface" />
         <action
             android:id="@+id/action_signup2_to_user_interface2"
+            app:destination="@id/user_interface" />
+        <action
+            android:id="@+id/action_signup2_to_loginPage"
+            app:destination="@id/loginPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPage"
+        android:name="com.example.project_dequeue.LoginPage"
+        android:label="fragment_login_page"
+        tools:layout="@layout/fragment_login_page" >
+        <action
+            android:id="@+id/action_loginPage_to_user_interface"
+            app:destination="@id/user_interface" />
+        <action
+            android:id="@+id/action_loginPage_to_user_interface2"
             app:destination="@id/user_interface" />
     </fragment>
 </navigation>

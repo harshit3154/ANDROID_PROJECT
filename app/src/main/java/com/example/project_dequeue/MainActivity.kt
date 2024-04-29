@@ -1,6 +1,7 @@
 package com.example.project_dequeue
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var s_p: SharedPreferences
     lateinit var toolbar:Toolbar
-    val file_name = "MyPref.txt"
+    val file_name = "MyPref"
     val name_key = "NAME"
     val email_key = "EMAIL"
     @SuppressLint("MissingInflatedId")
@@ -30,26 +31,54 @@ class MainActivity : AppCompatActivity() {
         toolbar.setTitle("Dequeu")
         setActionBar(toolbar)
         toolbar.setOnClickListener(){
-            Toast.makeText(applicationContext,"Back arrow kiked",Toast.LENGTH_SHORT).show()
-        }
-        val first_screen = FirstScreen()
-        supportFragmentManager.beginTransaction().replace(R.id.main1, first_screen).commit()
-    }
 
+        }
+        supportFragmentManager.beginTransaction().replace(R.id.main1,FirstScreen()).commit()
+//        if(login()){
+//            val firstScreen=LoginPage()
+//            supportFragmentManager.beginTransaction().replace(R.id.main1,firstScreen)
+//        }else{
+//            val first_screen = FirstScreen()
+//            supportFragmentManager.beginTransaction().replace(R.id.main1, first_screen).commit()
+//        }
+
+    }
     fun save(name: String, email: String) {
         s_p = getSharedPreferences(file_name, MODE_PRIVATE)
         val editor = s_p.edit()
-        editor.putString(name_key, name)
+        editor.putString(name_key, name
+        )
         editor.putString(email_key, email)
         editor.apply()
     }
 
+    fun login():Boolean{
+        s_p=getSharedPreferences(file_name, MODE_PRIVATE)
+        val editor=s_p.edit()
+        val n=s_p.getString(name_key,"")
+        val e=s_p.getString(email_key,"")
+        System.out.println(n.toString()+e.toString())
+        if(e.toString().isNotEmpty() && n.toString().isNotEmpty())
+            return true
+        return false
+    }
+
+    fun verify(name:String,email:String):Boolean{
+
+        s_p=getSharedPreferences(file_name, Context.MODE_PRIVATE)
+        val editor:SharedPreferences.Editor=s_p.edit()
+        val n=s_p.getString(name_key,"")
+        val e=s_p.getString(email_key,"")
+
+        if(e.toString().equals(email) && n.toString().equals(name) && name.toString().isNotEmpty() && email.toString().isNotEmpty())
+            return true
+        return false
+    }
     fun show() {
         s_p = getSharedPreferences(file_name, MODE_PRIVATE)
         val editor = s_p.edit()
-        var n = s_p.getString(name_key, "").toString()
-        var e = s_p.getString(email_key, "").toString()
-        Toast.makeText(applicationContext, "${n} ${e}", Toast.LENGTH_SHORT).show()
+        var n:String= s_p.getString(name_key, "").toString()
+        var e:String= s_p.getString(email_key, "").toString()
     }
 
     fun delete_info() {
@@ -57,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         val editor = s_p.edit()
         editor.remove(name_key)
         editor.remove(email_key)
-
+        editor.apply()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
