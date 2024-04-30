@@ -99,6 +99,11 @@ class ItemList : Fragment() {
             Toast.makeText(context,"Thanks for ordering the ${arr[selected_index]}",Toast.LENGTH_SHORT).show()
             fragmentManager?.beginTransaction()?.replace(R.id.main,RatingFra())?.commit()
         }
+        viewi.findViewById<Button>(R.id.logout).setOnClickListener(){
+            var activity:MainActivity=activity as MainActivity
+            activity.delete_info()
+            fragmentManager?.beginTransaction()?.replace(R.id.main,FirstScreen())?.commit()
+        }
         return viewi
     }
 }

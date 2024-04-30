@@ -8,9 +8,12 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import android.widget.Toolbar
+import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
 
 
 class
@@ -38,6 +41,11 @@ class
             ArrayAdapter,view,i,j->
             fragmentManager?.beginTransaction()?.replace(R.id.main,ItemList())?.commit()
             list.setSelector(androidx.appcompat.R.color.abc_background_cache_hint_selector_material_dark)
+        }
+        viewu.findViewById<Button>(R.id.logout).setOnClickListener(){
+            var activity:MainActivity=activity as MainActivity
+            activity.delete_info()
+            fragmentManager?.beginTransaction()?.replace(R.id.main,FirstScreen())?.commit()
         }
         return viewu
     }

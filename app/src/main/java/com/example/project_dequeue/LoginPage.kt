@@ -32,8 +32,10 @@ class LoginPage : Fragment() {
             if (mainActivity.verify(name.text.toString(), email.text.toString())) {
                 val first_screen = user_interface()
                 fragmentManager?.beginTransaction()?.replace(R.id.signupscreen, first_screen)?.commit()
+
             } else {
                 Toast.makeText(context, "Invalid credintial", Toast.LENGTH_SHORT).show()
+                fragmentManager?.beginTransaction()?.replace(R.id.main, FirstScreen())?.commit()
             }
         }
         return viewl

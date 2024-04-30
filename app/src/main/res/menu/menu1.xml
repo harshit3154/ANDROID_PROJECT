@@ -7,12 +7,7 @@
         android:title="Setting"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/action_email"
-        android:icon="@android:drawable/ic_dialog_email"
-        android:orderInCategory="2"
-        android:title="Email"
-        app:showAsAction="always" />
+
     <item
         android:id="@+id/action_add"
         android:icon="@android:drawable/ic_menu_add"
@@ -23,5 +18,5 @@
         android:id="@+id/lgout"
         android:title="Logout"
         android:orderInCategory="4"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 </menu>

@@ -33,14 +33,10 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnClickListener(){
 
         }
-        supportFragmentManager.beginTransaction().replace(R.id.main1,ItemList()).commit()
-//        if(login()){
-//            val firstScreen=LoginPage()
-//            supportFragmentManager.beginTransaction().replace(R.id.main1,firstScreen)
-//        }else{
-//            val first_screen = FirstScreen()
-//            supportFragmentManager.beginTransaction().replace(R.id.main1, first_screen).commit()
-//        }
+        if(login())
+            supportFragmentManager.beginTransaction().replace(R.id.main1,user_interface()).commit()
+        else
+            supportFragmentManager.beginTransaction().replace(R.id.main1,FirstScreen()).commit()
 
     }
     fun save(name: String, email: String) {
@@ -99,10 +95,7 @@ class MainActivity : AppCompatActivity() {
         if (id == R.id.action_settings) {
             Toast.makeText(applicationContext, "Settings Menu", Toast.LENGTH_LONG).show()
             return true
-        } else if (id == R.id.action_email) {
-            Toast.makeText(applicationContext, "Email", Toast.LENGTH_LONG).show()
-            return true
-        } else if (id == R.id.action_add) {
+        }  else if (id == R.id.action_add) {
             Toast.makeText(applicationContext, "Add", Toast.LENGTH_LONG).show()
             return true
         }
