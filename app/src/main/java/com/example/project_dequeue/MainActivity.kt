@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnClickListener(){
 
         }
-        supportFragmentManager.beginTransaction().replace(R.id.main1,FirstScreen()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.main1,ItemList()).commit()
 //        if(login()){
 //            val firstScreen=LoginPage()
 //            supportFragmentManager.beginTransaction().replace(R.id.main1,firstScreen)

@@ -36,6 +36,7 @@ class
         list.adapter=adapter
         list.setOnItemClickListener(){
             ArrayAdapter,view,i,j->
+            fragmentManager?.beginTransaction()?.replace(R.id.main,ItemList())?.commit()
             list.setSelector(androidx.appcompat.R.color.abc_background_cache_hint_selector_material_dark)
         }
         return viewu
